@@ -15,7 +15,7 @@ RSpec.describe 'As a User' do
             click_on "Find Nearest Station"
 
             # Then I should be on page "/search"
-            expect(current_path).to eq("Search")
+            expect(current_path).to eq("/search")
 
             # Then I should see the closest electric fuel station to me.
             expect(page).to have_css(".station")
@@ -33,16 +33,14 @@ RSpec.describe 'As a User' do
             # I should also see:
 
             # - the distance of the nearest station (should be 0.1 miles)
-            expect(page).to have_content("Distance of nearest station: 0.1 miles")
+            expect(page).to have_content("Distance of nearest station: 0.1 mi")
 
             # - the travel time from Turing to that fuel station (should be 1 min)
-            expect(page).to have_content("Travel Time from Turing: 1 min.")
+            expect(page).to have_content("Travel Time from 1331 17th St LL100, Denver, CO 80202: 1 min")
 
             # - The direction instructions to get to that fuel station
-            expect(page).to have_css("#directions")
-
             #   "Turn left onto Lawrence St Destination will be on the left"
-            expect(page).to have_content("Turn left onto Lawrence St Destination will be on the left")
+            expect(page).to have_content("Turn <b>left</b> onto <b>Lawrence St</b><div style=\"font-size:0.9em\">Destination will be on the left</div>")
 
         end
     end

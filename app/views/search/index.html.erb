@@ -1,0 +1,16 @@
+<h1> Destination </h1>
+
+
+<div class="station">
+    <p id="name"><%= @destination[:station_name] %></p>
+    <p id="address"><%= @destination[:street_address] %></p>
+    <p id="fuel_type"><%= @destination[:fuel_type_code] %></p>
+    <p id="access_times"><%= @destination[:access_days_time] %></p>
+</div>
+
+
+<h4>Distance of nearest station: <%= @distance.first[:distance][:text] %></h4>
+
+<h4>Travel Time from <%= @location %>: <%= @distance.first[:duration][:text] %></h4>
+
+<h4>Directions: <%= @distance[1][:html_instructions] %></h4>
